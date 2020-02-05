@@ -1,4 +1,6 @@
-# The TOROS Science Pipeline Documentationo
+[![Build Status](https://travis-ci.org/toros-astro/pipeline-docs.svg?branch=master)](https://travis-ci.org/toros-astro/pipeline-docs)
+
+# The TOROS Science Pipeline Documentation
 
 TOROS goal is to enable optical follow-up to gravitational wave alerts
 issued by the [LIGO/Virgo Public Alerts](https://emfollow.docs.ligo.org).
