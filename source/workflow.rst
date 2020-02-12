@@ -4,6 +4,18 @@ Pipeline Workflow
 Modules
 -------
 
+Each TOROS module will run as a daemon (background process)
+and work on a specific port specified in the configuration file using the XML-RPC protocol.
+
+Each service responds to a single function called ``front_desk`` which accepts a "Work Order".
+Work Orders (WO) are dictionaries with a specific structure described (see section :ref:`wo`).
+
+The specific editable parameters taken by the modules, like the database name,
+the port for each service, etc, are set on a global configuration file (one per network node).
+Each module loads and keeps a copy of the configuration parameters at loading time.
+If configuration parameters are changed, all the modules have to be restarted.
+See :ref:`conf`.
+
 Alert Robot (lvcgcn)
 ^^^^^^^^^^^^^^^^^^^^
 
@@ -86,3 +98,40 @@ Stage 3
 Dome and telescope synchronized.
 Calibration of files triggered by telescope.
 Web interface to interact with telescope and processor.
+
+.. _conf:
+
+Configuration file
+------------------
+
+A `YAML`_ configuration file for all services.
+It is copied into ``/etc/toros/toros.conf.yaml`` at installation time.
+It is meant to be edited after install.
+
+Some parameters to change:
+
+Preprocessor Service Address
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+**HTTP:** The full address and port to locate the preprocessor service on the net.
+Ex: ``http://127.168.0.1:8080``.
+
+**IP:** The IP address of the server running the preprocessor service.
+Ex: ``127.168.0.1``.
+
+**Port:** The port for the address of the server running the preprocessor service.
+Ex: ``8080``.
+
+Logging
+^^^^^^^
+
+**File:** File path to the log file that will be used to log. Default is ``/etc/toros/logs/toros.log``.
+
+**Log Level:** One of ``DEBUG``, ``INFO``, ``WARNING``, ``ERROR``. Default: ``INFO``.
+
+Database
+^^^^^^^^
+
+Path and credentials to access the database.
+
+.. _YAML: https://yaml.org

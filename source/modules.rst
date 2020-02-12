@@ -11,16 +11,7 @@ Public API: TBD
 Machine finishes taking images for a specific request or routine imaging.
 
 Notify Processor machine that there are new raw exposures in some folder.
-The collection of these calibration and light frames will be referred from now on as a *"file batch"*.
-
-The work order sent to processor may look like this::
-
-  WO = {
-    ID: 1,
-    request: calibrate_file_batch,
-    url: ftp:///home/telescope/path/to/folder,
-    ...
-  }
+The collection of these calibration and light frames will be referred from now on as a *file batch*.
 
 Processor
 ---------
@@ -51,3 +42,38 @@ Let's suppose we want to do a Dark stacking.
       (this should trigger an email send to all admins).
     - The caller function can either return control
       or skip the step and continue with the next step.
+
+
+.. _wo:
+
+Work Orders
+-----------
+
+An example of a work order sent to the Preprocessor::
+
+  work_order = {
+      "id": "1",
+      "request": "calibrate_file_batch",
+      "url": https://myaddres.org/get?allfiles,
+      "datetime": "2019-03-05T14:34:54.234",
+      "user": "Main Module",
+      ...
+  }
+
+``request`` could be one of the following: ``calibrate_file_batch``, ``resume_file_batch``, ``restart_file_batch``, etc.
+
+Here is an example of a work order sent to telescope::
+
+  work_order = {
+      "id": "1",
+      "request": "observation",
+      "priority": None,
+      "datetime": "2019-03-05T14:34:54.234",
+      "ra" = 132.23356,
+      "dec" = 34.254534,
+      "user": "Main Module",
+      ...
+  }
+
+``priority`` is assigned by the scheduler in the Telescope module when receiving the WO.
+It will be a float number in the range 0-10.
