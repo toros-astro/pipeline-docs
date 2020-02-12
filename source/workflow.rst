@@ -51,6 +51,9 @@ Tasks:
 Preprocessor
 ^^^^^^^^^^^^
 
+Full documentation in the `torosmanager <https://torosmanager.readthedocs.io>`_
+webpage.
+
 The preprocessor module is a background process running continuously and listening
 for requests on a designated port.
 Communication protocol could be HTTP, TCP/IP or XML-RPC.
