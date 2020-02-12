@@ -6,9 +6,11 @@
 .. toctree::
    :hidden:
 
+   workflow
    installation
    requirements
    modules
+   orm
 
 The TOROS Science Pipeline
 ==========================
@@ -19,12 +21,3 @@ issued by the `LIGO/Virgo Public Alerts <https://emfollow.docs.ligo.org/>`_.
 This document describes the TOROS pipeline structure
 that will control the adquisition and processing of the image data.
 It is intended for users and developers for the TOROS pipeline.
-
-Pipeline Basic Diagram
-----------------------
-
-When an alert is issued by the LVC, the lvcgcn daemon will receive the alert,
-in the form of a VOEvent, process its contents and generate a list of potential
-host galaxies. The information is then relayed to the observatories.
-For a more detailed description of the lvcgcn receiver,
-please see `lvcgcn <https://lvcgcn.readthedocs.io>`_. 
