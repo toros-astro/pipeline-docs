@@ -87,23 +87,25 @@ The Development will be divided into (roughly) 3 stages of progressive autonomy:
 Stage 1
 ^^^^^^^
 
-Automatic target scheduling.
-Dome and telescope operated manually, possibly remotely.
-Calibration of files done automatically but triggered manually at the end of the night.
+- Automatic target scheduling.
+- Dome and telescope operated manually, possibly remotely.
+- Calibration of files done automatically but triggered manually at the end of the night.
+- Single execution thread for processes.
 
 Stage 2
 ^^^^^^^
 
-Dome and telescope operated remotely with scripts.
-Explore Linux-based telescope operation.
-Windows-Linux connection for communication.
+- Dome and telescope operated remotely with scripts.
+- Explore Linux-based telescope operation.
+- Windows-Linux connection for communication.
+- Requests processed in separate threads.
 
 Stage 3
 ^^^^^^^
 
-Dome and telescope synchronized.
-Calibration of files triggered by telescope.
-Web interface to interact with telescope and processor.
+- Dome and telescope synchronized.
+- Calibration of files triggered by telescope.
+- Web interface to interact with telescope and processor.
 
 .. _conf:
 
