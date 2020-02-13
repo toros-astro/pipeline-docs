@@ -1,11 +1,11 @@
-Pipeline Workflow
-=================
+Overview
+========
 
 Modules
 -------
 
 Each TOROS module will run as a daemon (background process)
-and work on a specific port specified in the configuration file using the XML-RPC protocol.
+and work on a specific port specified in the configuration file using the XML-RPC (or HTTP) protocol.
 
 Each service responds to a single function called ``front_desk`` which accepts a "Work Order".
 Work Orders (WO) are dictionaries with a specific structure described (see section :ref:`wo`).
@@ -15,6 +15,9 @@ the port for each service, etc, are set on a global configuration file (one per 
 Each module loads and keeps a copy of the configuration parameters at loading time.
 If configuration parameters are changed, all the modules have to be restarted.
 See :ref:`conf`.
+
+Next, we describe 3 modules of the pipeline. More can be added in the future.
+See :ref:`modules` for a full description.
 
 Alert Robot (lvcgcn)
 ^^^^^^^^^^^^^^^^^^^^

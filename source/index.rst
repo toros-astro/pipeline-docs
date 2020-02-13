@@ -6,9 +6,9 @@
 .. toctree::
    :hidden:
 
-   workflow
-   installation
+   overview
    requirements
+   installation
    modules
    orm
 
