@@ -3,6 +3,69 @@
 Modules
 =======
 
+Dome
+----
+
+.. note::
+
+  Regarding **Dome** control development, it will be divided in two stages:
+  
+  **Stage 1:** Dome control with C# and ASCOM drivers. Tested on ASCOM simulator.
+  Also check out `ASCOM's Dome class <https://ascom-standards.org/Help/Developer/html/T_ASCOM_DriverAccess_Dome.htm>`_.
+
+  **Stage 2:** Dome control with `Alpaca <https://ascom-standards.org/Developer/Alpaca.htm>`_
+  through its `web API <https://ascom-standards.org/api/>`_.
+  
+  On stage 2, we can use the Python interface.
+  
+Dome control communication
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Types of operations:
+
+- status
+    - azim, open/close
+- set for coordinates (move dome to alt /azim)
+- open dome
+- close dome
+- park position (optional)
+- sync azimuth (not for now)
+
+API
+^^^
+
+.. c:function:: DomeStatus()
+
+    return: json (dictonary)
+
+    .. code-block::
+    
+      {
+      "azim": float (degrees),
+      "open": boolean,
+      "park": boolean,
+      "connected": boolean,
+      "time": unixtime (float),
+      "version" : string (version of a software) // example: “v0.0.1”
+      }
+
+.. c:function:: SetAzim (azim float)
+
+    return ``boolean``
+
+.. c:function:: OpenDome()
+    
+    return ``boolean``
+
+.. c:function:: CloseDome()
+
+    return ``boolean``
+
+.. c:function:: ParkPostion()
+
+    return ``boolean``
+
+
 Telescope
 ---------
 
@@ -12,6 +75,7 @@ Machine finishes taking images for a specific request or routine imaging.
 
 Notify Processor machine that there are new raw exposures in some folder.
 The collection of these calibration and light frames will be referred from now on as a *file batch*.
+
 
 Processor
 ---------
